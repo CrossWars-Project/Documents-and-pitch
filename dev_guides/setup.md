@@ -106,7 +106,8 @@ VITE_SUPABASE_ANON_KEY="anon-key"
 > email danielleakaella@gmail.com to get dev access to the supabase project to obtian project id and anon key
 - if necessary replace http://127.0.0.1:8000 to whatever your backend port is 
 ### 4. Start Development server
-```npm run dev
+```bash
+npm run dev
 ```
 
 
