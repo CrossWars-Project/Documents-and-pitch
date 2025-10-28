@@ -1,0 +1,220 @@
+name: Bug Report
+description: Report a bug or issue with CrossWars
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## How to Write a Good Bug Report
+        
+        A good bug report helps us fix issues faster. Please include:
+        - **Clear description**: What went wrong?
+        - **Reproducible steps**: Can we make it happen again?
+        - **Expected vs actual behavior**: What should have happened vs what did happen?
+        - **Environment details**: Browser, device, OS
+        - **Visual evidence**: Screenshots or videos when possible
+        
+        **Before submitting**, please search [existing issues](../../issues) to avoid duplicates.
+
+  - type: dropdown
+    id: bug-area
+    attributes:
+      label: Bug Area
+      description: Where did you encounter this bug?
+      options:
+        - Gameplay (solo crossword)
+        - Gameplay (race mode)
+        - Account/Authentication
+        - Stats
+        - Inviting/Joining
+        - UI/Visual Issues
+        - Performance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: |
+        Example: "When I complete a crossword puzzle in race mode, my score doesn't update on the leaderboard."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps that will help us reproduce the bug consistently
+      placeholder: |
+        1. Log into my account
+        2. Start a race with a friend
+        3. Complete the puzzle first
+        4. Navigate to Stats page
+        5. Notice that my race wins count hasn't increased
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "My race wins count should have increased by 1 and appeared on the leaderboard immediately."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead?
+      placeholder: "The stats page still shows my old win count and the leaderboard doesn't reflect my latest win."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How Often Does This Occur?
+      description: Does this happen every time or intermittently?
+      options:
+        - Every time (100% reproducible)
+        - Most of the time (>75%)
+        - Sometimes (25-75%)
+        - Rarely (<25%)
+        - Only happened once
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser are you using?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Brave
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser Version
+      description: What version of the browser? (Find this in browser settings → About)
+      placeholder: "e.g., Chrome 119.0.6045.159"
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device Type
+      description: What device are you using?
+      options:
+        - Desktop/Laptop
+        - Mobile (iOS)
+        - Mobile (Android)
+        - Tablet (iOS)
+        - Tablet (Android)
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system and version?
+      placeholder: "e.g., Windows 11, macOS 14.1, iOS 17.2, Android 14"
+
+  - type: input
+    id: screen-size
+    attributes:
+      label: Screen Size/Resolution (if UI bug)
+      description: Only needed for visual/layout bugs
+      placeholder: "e.g., 1920x1080, iPhone 14 Pro (393x852)"
+
+  - type: dropdown
+    id: logged-in
+    attributes:
+      label: Account Status
+      description: Were you logged in when this occurred?
+      options:
+        - Logged in
+        - Not logged in
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots/Videos
+      description: |
+        Visual evidence is extremely helpful! 
+        - For UI bugs: Show what looks wrong
+        - For gameplay bugs: Show the unexpected behavior
+        - For errors: Capture the error message
+      placeholder: Drag and drop images here or paste image URLs
+
+  - type: textarea
+    id: console-errors
+    attributes:
+      label: Browser Console Errors (Optional but Helpful)
+      description: |
+        How to find console errors:
+        - Chrome/Edge/Firefox: Press F12 → Console tab
+        - Safari: Develop menu → Show JavaScript Console
+        - Copy and paste any red error messages
+      placeholder: Paste any error messages from the browser console (if any)
+      render: shell
+
+  - type: textarea
+    id: network-activity
+    attributes:
+      label: Network Issues (if applicable)
+      description: |
+        If the bug involves loading, saving, or syncing:
+        - Did you see any error messages?
+        - Was your internet connection stable?
+        - Did anything fail to load?
+      placeholder: Describe any network-related observations
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Any other relevant information:
+        - Does this happen with specific crosswords?
+        - Does it happen in incognito/private mode?
+        - Have you tried clearing cache/cookies?
+        - Does it work on a different browser/device?
+      placeholder: Any other details that might be helpful...
+
+  - type: input
+    id: workaround
+    attributes:
+      label: Workaround (if you found one)
+      description: Have you found a way to avoid or work around this bug?
+      placeholder: "e.g., Refreshing the page makes my stats appear correctly"
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      description: Please confirm you've completed these steps
+      options:
+        - label: I have searched existing issues to ensure this bug hasn't been reported
+          required: true
+        - label: I have provided detailed steps to reproduce this bug
+          required: true
+        - label: I have included my browser and device information
+          required: true
