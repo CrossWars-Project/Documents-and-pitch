@@ -17,19 +17,11 @@ Our goal is to make bite-sized crossword fun accessible, social, and paywall-fre
 
  - Offer an AI-assisted puzzle generation pipeline (experimental).
 
-
-## Layout
-
-/
-├─ backend/                 # FastAPI backend
-├─ frontend/                # React frontend
-├─ docs/
-│  └─ LIVING_DOCUMENT.md    # Living project plan, specs, decisions (single source of truth)
-├─ deploy/                  # Docker / deployment manifests
-├─ scripts/                 # DB migrations, seeders, helper scripts
-├─ tests/                   # Integration & system tests
-└─ README.md                # This file
-
+ ## Repo Table of Contents
+ - **User Guides**
+     - [dev_guides](dev_guides/README.md)
+ - **Developer Guides**
+     - [user_guides](user_guides/README.md)
 
 
 ## Living Document
