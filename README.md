@@ -19,9 +19,9 @@ Our goal is to make bite-sized crossword fun accessible, social, and paywall-fre
 
  ## Repo Table of Contents
  - **User Guides**
-     - [dev_guides](dev_guides/README.md)
- - **Developer Guides**
      - [user_guides](user_guides/README.md)
+ - **Developer Guides**
+     - [dev_guides](dev_guides/README.md)
 
 
 ## Living Document
