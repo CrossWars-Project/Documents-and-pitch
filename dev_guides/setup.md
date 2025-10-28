@@ -213,18 +213,12 @@ git pull origin main
  ```
 > If you are getting import errors you may need to re-install requirements refer back to the setup instructions above for installs
 > 
-> or if that doest work try
-> `pip install fastapi uvicorn supabase python-dotenv pytest`
+> or if that doesn't work try: `pip install fastapi uvicorn supabase python-dotenv pytest`
 
 > If your requirements.txt file has become corrupted: 
-> # Delete corrupted file
-> `del requirements.txt`
->    
-> # Create new clean file with UTF-8 encoding
-> `pip freeze | Out-File -Encoding utf8 requirements.txt`
->
-> # Verify it's clean
-> `type requirements.txt`
+> **Delete corrupted file**:`del requirements.txt`
+> **Create new clean file with UTF-8 encoding**: `pip freeze | Out-File -Encoding utf8 requirements.txt`
+> **Verify it's clean**: `type requirements.txt`
  3. Make code changes
     - keep commits small and descriptive
         - commit for feature change
