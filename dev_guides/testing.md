@@ -11,7 +11,8 @@ This will contain detailed information on test structure, commands, and seed dat
 ### Running Tests Backend
 
 Run tests from the project root with your virtual environment active:
-```powershell
+```bash
+powershell
 python -m pytest -q
 ```
 
@@ -22,7 +23,8 @@ python -m pytest -q
 - Quickest fix for small repos
 
 **Option 2: Editable install (recommended for development)**
-```powershell
+```bash
+powershell
 python -m pip install -e .
 ```
 - Requires `pyproject.toml` or `setup.cfg`
