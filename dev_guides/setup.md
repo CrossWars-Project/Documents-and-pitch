@@ -6,14 +6,25 @@ Initial setup instructions including tools, repo layout, workflow, commit/pull g
 ## Repos and DB
 Crosswars is split between 3 repos uses Supabase as a db.
 ### Repos: 
-1. Reports and Documentation
-2. Backend (you will need to clone this)
-3. Frontend (you will need to clone this)
+**Backend (`/backend`)**
+- API routes handle crossword generation, race invites, and user statistics
+- Supabase is used for database operations and authentication
+- Tests ensure route functionality and data integrity
+
+**Frontend (`/frontend`)** 
+- Built with React and Vite for fast development and builds
+- Components are organized by feature/screen for maintainability
+- Context providers manage global state (authentication, game data)
+- `api.js` centralizes all backend API calls
+
+**Documentation (`/reports-and-docs`)**
+- Guides for developers and end-users
+- Weekly reports track team progress and goals
+
 ### Supabase:
 To gain access to supabase and its keys you will need to email danielleakaella@gmail.com to get access the project id and keys information for your .env file
 
 ## Repository Layout
-
 Reflects current published version of respective repos.
 ```
 /
@@ -69,6 +80,7 @@ Reflects current published version of respective repos.
 
 --- 
 ## Frontend Setup
+
 ### Prerequisits
 Make sure you have the following installed or access to **before starting**:
 - [Node.JS] (https://nodejs.org/en/download/current)
