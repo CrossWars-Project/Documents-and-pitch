@@ -23,7 +23,7 @@ CrossWars is a free web app that delivers a daily mini-crossword and adds realti
     - Solo just go ahead and play as you expect
     - Want to race a friend? 
         - You will need to invite your friend and wait for them to accept before you guys can race.
-        - Head to [Race](#racing-friends) to learn more about how race mode works!
+        - Head to [Race](racing-friends.md) to learn more about how race mode works!
 
 ## Having an issue?
-If you are havving an issue or want to report a bug? Head to [Troubleshooting](#troubleshooting)!
+If you are havving an issue or want to report a bug? Head to [Troubleshooting](troubleshooting.md)!
