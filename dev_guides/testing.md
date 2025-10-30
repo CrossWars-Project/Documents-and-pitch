@@ -36,13 +36,13 @@ $env:PYTHONPATH = (Get-Location).Path; python -m pytest -q
 ```
 
 ### How to add a test: 
-- Go into the tests folder and find the most relevant file for the tests we wish to write or create a new file. 
+- Go into the tests folder and find the most relevant file for the tests we wish to write or create a new file.
+- Note: you MUST be in the tests folder. There is a conftest file that sets the env variable to testing which is what signals app/db.py to use the mock database.
 - Be sure to import pytest. 
-- It is often a  good pattern to create a mock user or other mock object we can use in different tests. 
-- For tests involving the database, use the mocked db in tests/mocks/mock_supabase.py
+- It is often a  good pattern to create a mock user or other mock object we can use in different tests.
 - Define each test in the file with `def <test_name>`. 
 - Use pytest’s assert statements to ensure expected behavior. 
-- We can run a file of tests in our terminal with `pytest -v tests/<test_name>.py` or a specific test with `pytest -v -k <specific_test_name>`. 
+- We can run a file of tests in our terminal with `pytest tests/<test_name>.py` or a specific test with `pytest -k <specific_test_name>`. 
 - There is a job in CircleCI that enforces that we may not merge any code that does not pass any tests in the test folder.
 
 ## Frontend
