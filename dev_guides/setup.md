@@ -131,7 +131,7 @@ Make sure you have the following installed or access to **before starting**:
 - In you VS terminal run: `python -m venv venv`
 - Then activate the virtual environment:
     - Windows: `venv\Scripts\activate`
-    - Mac:`venv/bin/activate`
+    - Mac:`source venv/bin/activate`
 
 ### 3. Install Dependencies
 - In your VS terminal run
