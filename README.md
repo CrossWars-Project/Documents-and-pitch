@@ -17,6 +17,12 @@ Our goal is to make bite-sized crossword fun accessible, social, and paywall-fre
 
  - Offer an AI-assisted puzzle generation pipeline (experimental).
 
+## Use Case Status 
+ - Solo game play: Functional. A puzzle will be generated in the back end, and the user is able to complete it.
+ - Viewing personal stats: Semi-functional. Frontend stats page is build, does not yet autopopulate with user stats.
+ - Inviting a friend to play: Semi-functional: The invite line is being generated on the backend, but frontend needs to connect to the battle play button.
+ - Battle play: Non-functional.
+
  ## Repo Table of Contents
  - **User Guides**
      - [user_guides](user_guides/README.md)
