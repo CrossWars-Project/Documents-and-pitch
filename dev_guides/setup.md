@@ -128,10 +128,10 @@ Make sure you have the following installed or access to **before starting**:
 ### 1. Clone the Repository
 
 ### 2. Create and Activate a Virtual Environment
-- In you VS terminal run: `python -m venv venv`
+- In you VS terminal run: `py -3.13 -m venv .venv313`
 - Then activate the virtual environment:
-    - Windows: `venv\Scripts\activate`
-    - Mac:`source venv/bin/activate`
+    - Windows: `.\.venv313\Scripts\Activate.ps1`
+    - Mac:`source .venv313/bin/activate`
 
 ### 3. Install Dependencies
 - In your VS terminal run
