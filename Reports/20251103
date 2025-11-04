@@ -1,0 +1,45 @@
+#Team Report 11/3
+###Project Meeting Agenda:
+- Ensure beta is working for everyone
+- Update documentation
+- Practice Presentation
+###Last week’s goals:
+- Get ready for beta release on Tuesday! This means…
+- Users can play a simple crossword (solo)
+- Users can view their stats
+- Users can generate an invite link
+
+###Progress and Issues:
+- Logged in users can generate an invite link
+- Crossword is generated
+- Users can play a simple crossword 
+- Sometimes the generator will miss number the clues
+- The mock database for testing was causing issues
+- Users can see their actual stats from the database rather than default stats
+###Plans and goals:
+- Update styling for solo crossword play
+- Ensure stats display updated stats after win
+- Users can accept a link
+- 2 players can see another players active in the same game room
+- Fix any generator bugs in the generator and general backend
+- Number the crossword properly (for across and down hints)
+
+##Individual Contributions
+###Last week’s goals: 
+- Jacqui- send hard coded puzzle to frontend and post to crossword table. Work on using crossword generator for formatting. Complete this by 10/29 and then support other team members as needed to get beta release up. Likely working to make crossword playable.
+- Anna: Complete the stats page, as well as the opponent matching page. Begin to build out the Battle Royale UI. Talk to the backend about how to get the clues and construct the layout.
+- Danielle: Finish invite get and post on backend by 10/29. Have tests written 10/30. Help get frontend passing auth to backend 11/1. 
+- Kiann: Get crossword generation working on main and routed to frontend.
+
+###Progress and issues: 
+- Danielle got invite creation to work. Backend token generation and post to database developed and wrote tests. Frontend to receive a token and use it to create a link that users can copy and share developed and tested. Set up frontend testing. 
+- Kiann- ai crossword generator is set up and working with our repo, documentation regarding generation is updated. Some issues with getting tests to pass.
+- Jacqui- did a major revamp of the working doc and spent some time debugging issues with the mock database. The actual site was sending values to the mock database rather than the real one. Got that resolved so that the mock database is only used for testing, and the real one is used in production. Set up passing the session user through the frontend and displaying actual statistics.
+- Anna- connected the frontend to the backend by getting the generated puzzle and displaying it for the user. Polished UI for the frontend to include a timer and clue lists. Current issue is getting the clue numbering to be accurate to the puzzle numbering. 
+
+
+###Plans and goals:
+- Danielle will update documentation 11/4. Get invited to accept working and routing both players to be in the game room by 11/9. Assist Anna with realtime.
+- Kiann - Fix any bugs related to backend generation and work on reducing the generation time (if possible) by 11/5. Work with frontend if necessary to display multiple crosswords.
+- Jacqui- will work through some of the Github Issue backlog, including straightening out the Guest path vs Logged in path, making font colors more readable, and writing a lot more tests.
+- Anna- work on realtime for battleplay. Polish UI with accurate clue numbering, updating opponent scores, and working quit and pause buttons if time.
