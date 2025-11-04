@@ -1,4 +1,4 @@
-# Styling Guide and Continous Integration
+# Styling Guide and Continuous Integration
 
 This section is to clarify formatting rules and CI guidelines
 
