@@ -12,8 +12,7 @@ Check this repos "Issues" for bugs that have been reported!
 - For now we do not support mobile game play :(
 
 ## How to report a bug
-1. Navigate to the Reports and Documents repo on github.
-2. Click on the issues tab located under the repository name.
+1. Navigate to the Reports and Documents [issues](https://github.com/CrossWars-Project/Reports-and-Documents/issues)
 2. Check existing issues to see if the bug has already been reported.
 3. On the issues page find the **New issue** button (typically on the right side)
 4. Clicking this will present you with a series of options select the **Bug Report** template.
