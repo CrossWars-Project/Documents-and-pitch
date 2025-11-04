@@ -6,12 +6,12 @@ Initial setup instructions including tools, repo layout, workflow, commit/pull g
 ## Repos and DB
 Crosswars is split between 3 repos uses Supabase as a db.
 ### Repos: 
-**Backend (`/backend`)**
+**[Backend](https://github.com/CrossWars-Project/Backend)**
 - API routes handle crossword generation, race invites, and user statistics
 - Supabase is used for database operations and authentication
 - Tests ensure route functionality and data integrity
 
-**Frontend (`/frontend`)** 
+**[Frontend](https://github.com/CrossWars-Project/FrontEnd)** 
 - Built with React and Vite for fast development and builds
 - Components are organized by feature/screen for maintainability
 - Context providers manage global state (authentication, game data)
