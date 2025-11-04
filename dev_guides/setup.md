@@ -143,9 +143,13 @@ pip install -r requirements-dev.txt
 ```bash
 pip freeze | Out-File -Encoding utf8 requirements.txt
 ```
-### 4. Create a .env File
-- The project ID and key can be found in the supabase project settings under API Keys
+### 4. Change .env.example to .env and Add the Keys
+- The project ID and key can be found in the supabase project settings under API Keys.
+- The OPENAI key can be found by navagating to openAI platform -> API KEYS in the left panel and then create new.
+- NOTE: If you publish your OPENAI key to guthub, or paste it anywhere outside VSCode, it will stop working and you'll need another one.
+- NOTE: If you don't have access to Crosswars on OPENAI, contact: kiannskkandan@gmail.com to get the invite.
 
+    OPENAI_API_KEY="your_key_here"
     SUPABASE_URL="https://yourprojectid.supabase.co"
     SUPABASE_KEY="your-anon-or-service-role-key"
     
@@ -158,7 +162,7 @@ uvicorn app.main:app --reload
  
 
 ### Additional setup notes
-- If vev prompts use venv interpreter `.venv/Scripts/python.exe`
+- If vev prompts use venv interpreter `.venv313/Scripts/python.exe`
 - If no prompt but having issue:
     1. `Ctrl + Shift + P`
     2. Type Python:Select Interpreter
