@@ -1,17 +1,17 @@
 # Setup
-Welcome to Crosswars! This document is your go to source for getting set up and understanding the basic structure for guidelines around contributing to this project. 
+Welcome to Crosswars! This document is your go-to source for getting set up and understanding the basic structure of guidelines for contributing to this project.
 
 Initial setup instructions including tools, repo layout, workflow, commit/pull guidelines, and .env.example
 
 ## Repos and DB
-Crosswars is split between 3 repos uses Supabase as a db.
-### Repos: 
-**Backend (`/backend`)**
+Crosswars is split between 3 repos and uses Supabase as a db.
+### Repos:
+**[Backend](https://github.com/CrossWars-Project/Backend)**
 - API routes handle crossword generation, race invites, and user statistics
 - Supabase is used for database operations and authentication
 - Tests ensure route functionality and data integrity
 
-**Frontend (`/frontend`)** 
+**[Frontend](https://github.com/CrossWars-Project/FrontEnd)**
 - Built with React and Vite for fast development and builds
 - Components are organized by feature/screen for maintainability
 - Context providers manage global state (authentication, game data)
@@ -21,8 +21,8 @@ Crosswars is split between 3 repos uses Supabase as a db.
 - Guides for developers and end-users
 - Weekly reports track team progress and goals
 
-### Supabase:
-To gain access to supabase and its keys you will need to email danielleakaella@gmail.com to get access the project id and keys information for your .env file
+### Supabase and OPENAI:
+To gain access to Supabase and its keys, you will need to email danielleakaella@gmail.com to get access to the project ID and keys information for your .env file.
 
 ## Repository Layout
 Reflects current published version of respective repos.
@@ -70,42 +70,45 @@ Reflects current published version of respective repos.
 │  └─ vite.config.js        # Vite build configuration
 │
 └─ reports-and-docs/        # Project documentation
-   ├─ dev_guides/           # Developer guides (setup, testing, deployment)
-   ├─ user_guides/          # End-user documentation
-   ├─ Reports/              # Weekly progress reports for dev team
-   ├─ Cross Wars Working Doc.pdf  # Development working document
-   └─ README.md             # Documentation overview and navigation
+  ├─ dev_guides/           # Developer guides (setup, testing, deployment)
+  ├─ user_guides/          # End-user documentation
+  ├─ Reports/              # Weekly progress reports for dev team
+  ├─ Cross Wars Working Doc.pdf  # Development working document
+  └─ README.md             # Documentation overview and navigation
 ```
 
 
---- 
+---
 ## Frontend Setup
 
-### Prerequisits
+### Prerequisites
 Make sure you have the following installed or access to **before starting**:
 - [Node.JS] (https://nodejs.org/en/download/current)
-    - `node -v`
-    - `npm -v`
+   - `node -v`
+   - `npm -v`
 - Backend running locally (to check connection)
 - A [Supabase](https://supabase.com) project (ask the team for the credentials)
+
 ### 1. Clone Repo
+[Frontend Repo](https://github.com/CrossWars-Project/Frontend#)
 ### 2. Install dependencies
+- make sure you are in \frontend
 - install react, vite, icons, and all other packages with
 ```bash
 npm install
 npm install react-icons
 ```
-### 3. Set up environement 
+### 3. Set up environment
 - change .env.example to just .env
-- in your .env file you should have: 
+- in your .env file, you should have:
 ```bash
 VITE_API_URL=http://127.0.0.1:8000
 VITE_SUPABASE_URL=https://<project-id>.supabase.co
 VITE_SUPABASE_ANON_KEY="anon-key"
 ```
-> email danielleakaella@gmail.com to get dev access to the supabase project to obtian project id and anon key
-- if necessary replace http://127.0.0.1:8000 to whatever your backend port is 
-### 4. Start Development server
+> email danielleakaella@gmail.com to get dev access to the supabase project to obtain project ID and anon key
+- If necessary, replace http://127.0.0.1:8000 to whatever your backend port is
+### 4. Start the Development server
 ```bash
 npm run dev
 ```
@@ -117,66 +120,67 @@ npm run dev
 
 Make sure you have the following installed or access to **before starting**:
 
-- [Python 3.10+](https://www.python.org/downloads/)
+- [Python 3.13+](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/downloads)
 - [Chocolaty] (https://chocolatey.org/install) (for Windows users to use `make format`)
 - [VS Code](https://code.visualstudio.com/)
-- A [Supabase](https://supabase.com) project (ask the team for the credentials)
+- A [Supabase](https://supabase.com) project (ask the team for the credentials or use your own project)
 
 ---
 
 ### 1. Clone the Repository
+[Backend Repo](https://github.com/CrossWars-Project/Backend#)
 
 ### 2. Create and Activate a Virtual Environment
-- In you VS terminal run: `py -3.13 -m venv .venv313`
+- Make sure you are in \backend
+- In VS terminal (different from frontend terminal), run: `py -3.13 -m venv .venv313`
 - Then activate the virtual environment:
-    - Windows: `.\.venv313\Scripts\Activate.ps1`
-    - Mac:`source .venv313/bin/activate`
+   - Windows: `.venv313\Scripts\Activate.ps1`
+   - Mac:`source .venv313/bin/activate`
 
 ### 3. Install Dependencies
-- In your VS terminal run
+- In your VS terminal, run
 ```bash
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
-- If you add new packages later update requirements.txt with
+- If you add new packages later, update requirements.txt with
 ```bash
 pip freeze | Out-File -Encoding utf8 requirements.txt
 ```
 ### 4. Change .env.example to .env and Add the Keys
-- The project ID and key can be found in the supabase project settings under API Keys.
-- The OPENAI key can be found by navagating to openAI platform -> API KEYS in the left panel and then create new.
-- NOTE: If you publish your OPENAI key to guthub, or paste it anywhere outside VSCode, it will stop working and you'll need another one.
-- NOTE: If you don't have access to Crosswars on OPENAI, contact: kiannskkandan@gmail.com to get the invite.
+- The project ID and key can be found in the Supabase project settings under API Keys.
+- The OPENAI key can be found by navigating to OpenAI platform -> API KEYS in the left panel and then creating a new one.
+- NOTE: If you publish your OPENAI key to GitHub, or paste it anywhere outside VSCode, it will stop working, and you'll need another one.
+- NOTE: If you don't have access to Crosswars on OPENAI or Supabase, contact: danielleakaella@gmail.com to get the invites.
 
-    OPENAI_API_KEY="your_key_here"
-    SUPABASE_URL="https://yourprojectid.supabase.co"
-    SUPABASE_KEY="your-anon-or-service-role-key"
-    
+   OPENAI_API_KEY="your_key_here"
+   SUPABASE_URL="https://yourprojectid.supabase.co"
+   SUPABASE_KEY="your-anon-or-service-role-key"
+   
 ### 5. Run the Development Server and Check
-- in terminal run 
+- in the terminal run
 ```bash
 uvicorn app.main:app --reload
 ```
- - visit http://127.0.0.1:8000 to check if its working, should see { "message": "Hello from FastAPI backend!" }
- 
+- visit http://127.0.0.1:8000 to check if it's working, should see { "message": "Hello from FastAPI backend!" }
 
-### Additional setup notes
+### Backend setup troubleshooting
 - If vev prompts use venv interpreter `.venv313/Scripts/python.exe`
-- If no prompt but having issue:
-    1. `Ctrl + Shift + P`
-    2. Type Python:Select Interpreter
-    3. choose the one that says venv and includes python.exe
- --
+- If no prompt, but having an issue:
+   1. `Ctrl + Shift + P`
+   2. Type Python:Select Interpreter
+   3. Choose the one that says venv and includes python.exe
+- If you are missing a key or need the .env file, email danielleakaella@gmail.com
 
 ## Frontend Workflow
-1. Start from latest main branch
- ```bash
+1. Start from the latest main branch
+```bash
 git checkout main
 git pull origin main
- ```
-2. checkout a branch using checkout or switch
- ```bash
+```
+2. Check out a branch using checkout or switch
+```bash
 git checkout -b <feature-or-fix>/<description>
 ```
 or
@@ -184,65 +188,65 @@ or
 git switch -c <feature-or-fix>/<description>
 ```
 3. Make code changes
-    - keep commits small and descriptive
-        - commit for feature change
-        - commit for new tests you need to write
-        - commit for documentation
+   - keep commits small and descriptive
+       - commit for feature change
+       - commit for new tests you need to write
+       - commit for documentation
 4. Format, Run tests, Manual test on local host
- ```bash
+```bash
 make format
 ```
-> When applicable run the backend to fully walk through and manually test frontend on local host
+> When applicable, run the backend to fully walk through and manually test the frontend on the local host
 5. Push branch to origin
- ```bash
- git push origin <branch-name>
- ```
+```bash
+git push origin <branch-name>
+```
 6. Make Pull Request
 7. Automated testing/ code review
 8. Merge to Main
 
 ## Backend Workflow
- 1. Start from latest main branch
- ```bash
- git checkout main
+1. Start from the latest main branch
+```bash
+git checkout main
 git pull origin main
- ```
- 2. checkout a branch using checkout or switch
- ```bash
- git checkout -b <feature-or-fix>/<description>
- git switch -c <feature-or-fix>/<description>
 ```
- 2. Activate venv
- ```bash
- venv/Scripts/activate
- ```
-> If you are getting import errors you may need to re-install requirements refer back to the setup instructions above for installs
-> 
-> or if that doesn't work try: `pip install fastapi uvicorn supabase python-dotenv pytest`
+2. Check out a branch using checkout or switch
+```bash
+git checkout -b <feature-or-fix>/<description>
+git switch -c <feature-or-fix>/<description>
+```
+2. Activatethe virtual environment:
+   - Windows: `.\.venv313\Scripts\Activate.ps1`
+   - Mac:`source .venv313/bin/activate`
 
-> If your requirements.txt file has become corrupted: 
+> If you are getting import errors, you may need to reinstall requirements. Refer back to the setup instructions above for installs.
+>
+> or if that doesn't work, try: `pip install fastapi uvicorn supabase python-dotenv pytest`
+
+> If your requirements.txt file has become corrupted:
 > **Delete corrupted file**:`del requirements.txt`
 > **Create new clean file with UTF-8 encoding**: `pip freeze | Out-File -Encoding utf8 requirements.txt`
 > **Verify it's clean**: `type requirements.txt`
- 3. Make code changes
-    - keep commits small and descriptive
-        - commit for feature change
-        - commit for new tests you need to write
-        - commit for documentation
- 4. Format and Run test
- ```bash
- make format
- uvicorn app.main:app --reload
- python -m pytest
+3. Make code changes
+   - keep commits small and descriptive
+       - commit for feature change
+       - commit for new tests you need to write
+       - commit for documentation
+4. Format and Run test
+```bash
+make format
+uvicorn app.main:app --reload
+python -m pytest
 ```
- 5. Push branch to origin
- ```bash
- git push origin <branch-name>
- ```
- 6. End dev session aka leave venv
- ```bash
- deactivate
- ```
- 7. Open Pull Request 
- 8. Automated testing/ code review
- 9. Merge to main
+5. Push branch to origin
+```bash
+git push origin <branch-name>
+```
+6. End dev session aka leave venv
+```bash
+deactivate
+```
+7. Open Pull Request
+8. Automated testing/ code review
+9. Merge to main
