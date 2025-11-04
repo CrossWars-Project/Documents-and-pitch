@@ -88,8 +88,11 @@ Make sure you have the following installed or access to **before starting**:
    - `npm -v`
 - Backend running locally (to check connection)
 - A [Supabase](https://supabase.com) project (ask the team for the credentials)
+
 ### 1. Clone Repo
+[Frontend Repo](https://github.com/CrossWars-Project/Frontend#)
 ### 2. Install dependencies
+- make sure you are in \frontend
 - install react, vite, icons, and all other packages with
 ```bash
 npm install
@@ -129,9 +132,10 @@ Make sure you have the following installed or access to **before starting**:
 [Backend Repo](https://github.com/CrossWars-Project/Backend#)
 
 ### 2. Create and Activate a Virtual Environment
-- In your VS terminal, run: `py -3.13 -m venv .venv313`
+- Make sure you are in \backend
+- In VS terminal (different from frontend terminal), run: `py -3.13 -m venv .venv313`
 - Then activate the virtual environment:
-   - Windows: `.\.venv313\Scripts\Activate.ps1`
+   - Windows: `.venv313\Scripts\Activate.ps1`
    - Mac:`source .venv313/bin/activate`
 
 ### 3. Install Dependencies
@@ -168,7 +172,6 @@ uvicorn app.main:app --reload
    2. Type Python:Select Interpreter
    3. Choose the one that says venv and includes python.exe
 - If you are missing a key or need the .env file, email danielleakaella@gmail.com
---
 
 ## Frontend Workflow
 1. Start from the latest main branch
