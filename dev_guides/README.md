@@ -8,13 +8,16 @@ This project has several important files. This file will give you a brief overvi
     - How the repositories are set up and how to access the source code and Supabase keys.
     - Directory structures
     - Getting set up
-    - Workflow
+## Workflow
+- [Frontend Workflow](frontend-workflow.md)
+- [Backend Workflow](backend-workflow.md)
+## Testing
+- [Testing](testing.md) will explain the following:
+    - How to test
+    - How to add tests
 ## Build
 - [Build](build.md) will explain the following:
     - Local Dev build
     - Local Production like build
     - Build troubleshooting
-## Testing
-- [Testing](testing.md) will explain the following:
-    - How to test
-    - How to add tests
+
