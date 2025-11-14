@@ -1,21 +1,21 @@
 # Bugs and Troubleshooting 
 
-## Common issues and How to solve them
-This will include common hangup and temporary patches/ways to address them until a more formal solution can be pushed
+## Common issues and how to solve them
+This will include common hangups and temporary patches/ways to address them until a more formal solution can be pushed
 
 ## Known Bugs & Limmitations
 
 ### Bugs:
-Check this repos "Issues" for bugs that have been reported!
+Check this repo's "Issues" for bugs that have been reported!
 
 ### Limitations:
-- For now we do not support mobile game play :(
+- For now, we do not support mobile game play :(
 
 ## How to report a bug
 1. Navigate to the Reports and Documents [issues](https://github.com/CrossWars-Project/Reports-and-Documents/issues)
 2. Check existing issues to see if the bug has already been reported.
-3. On the issues page find the **New issue** button (typically on the right side)
-4. Clicking this will present you with a series of options select the **Bug Report** template.
+3. On the issues page,  find the **New issue** button (typically on the right side)
+4. Clicking this will present you with a series of options. Select the **Bug Report** template.
 5. Provide a clear and concise title for the bug.
 6. Follow the directions on the template and be detailed!
     - Clear and precise sequence of actions that lead to the bug.
