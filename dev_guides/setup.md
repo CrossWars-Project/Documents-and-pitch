@@ -25,16 +25,14 @@ Crosswars is split between 3 repos and uses Supabase as a db.
 To gain access to Supabase and its keys, you will need to email danielleakaella@gmail.com to get access to the project ID and keys information for your .env file.
 
 ## Repository Layout
-Reflects current published version of respective repos.
+Reflects the current published version of respective repos.
 ```
 /
 ├─ backend/                 # FastAPI backend
 │  ├─ .circleci/            # CI/CD configuration
 │  ├─ app/
 │  │  ├─ routes/            # API endpoints for database interactions
-│  │  │  ├─ crossword.py    # Fetch words/clues, generate puzzles
-│  │  │  ├─ invites.py      # Race invites: create tokens, join, status updates
-│  │  │  └─ stats.py        # User stats, leaderboards
+│  │  │  
 │  │  ├─ auth.py            # Authentication token management
 │  │  ├─ db.py              # Supabase connection setup
 │  │  └─ models.py          # SQLAlchemy ORM table definitions
@@ -51,14 +49,6 @@ Reflects current published version of respective repos.
 │  ├─ public/               # Static assets (favicon, images)
 │  ├─ src/
 │  │  ├─ components/        # React components organized by feature
-│  │  │  ├─ assets/         # Component-specific images/icons
-│  │  │  ├─ BattleScreen/   # Race mode gameplay UI
-│  │  │  ├─ Dashboard/      # Authenticated user dashboard
-│  │  │  ├─ GuestDashboard/ # Guest user view
-│  │  │  ├─ HomeScreen/     # Landing page
-│  │  │  ├─ LoginSignup/    # Authentication forms
-│  │  │  ├─ SoloPlay/       # Solo crossword gameplay UI
-│  │  │  └─ Stats/          # User statistics and leaderboards
 │  │  ├─ context/           # React Context providers (auth, game state)
 │  │  ├─ api.js             # Backend API client functions
 │  │  ├─ supabaseClient.js  # Supabase client configuration
@@ -72,7 +62,7 @@ Reflects current published version of respective repos.
 └─ reports-and-docs/        # Project documentation
   ├─ dev_guides/           # Developer guides (setup, testing, deployment)
   ├─ user_guides/          # End-user documentation
-  ├─ Reports/              # Weekly progress reports for dev team
+  ├─ Reports/              # Weekly progress reports for the dev team
   ├─ Cross Wars Working Doc.pdf  # Development working document
   └─ README.md             # Documentation overview and navigation
 ```
@@ -83,7 +73,7 @@ Reflects current published version of respective repos.
 
 ### Prerequisites
 Make sure you have the following installed or access to **before starting**:
-- [Node.JS] (https://nodejs.org/en/download/current)
+- [Node.JS 22.12+] (https://nodejs.org/en/download/current)
    - `node -v`
    - `npm -v`
 - Backend running locally (to check connection)
@@ -92,13 +82,13 @@ Make sure you have the following installed or access to **before starting**:
 ### 1. Clone Repo
 [Frontend Repo](https://github.com/CrossWars-Project/Frontend#)
 ### 2. Install dependencies
-- make sure you are in \frontend
-- install react, vite, icons, and all other packages with
+` cd frontend `
+- install all packages with
 ```bash
 npm install
 npm install react-icons
 ```
-### 3. Set up environment
+### 3. Set up the environment
 - change .env.example to just .env
 - in your .env file, you should have:
 ```bash
@@ -132,8 +122,10 @@ Make sure you have the following installed or access to **before starting**:
 [Backend Repo](https://github.com/CrossWars-Project/Backend#)
 
 ### 2. Create and Activate a Virtual Environment
-- Make sure you are in \backend
-- In VS terminal (different from frontend terminal), run: `py -3.13 -m venv .venv313`
+` cd backend `
+- In VS terminal (different from frontend terminal), run:
+   - Windows: `py -3.13 -m venv .venv313`
+   - Mac: `python3 -m venv .venv313`
 - Then activate the virtual environment:
    - Windows: `.venv313\Scripts\Activate.ps1`
    - Mac:`source .venv313/bin/activate`
@@ -148,15 +140,16 @@ pip install -r requirements-dev.txt
 ```bash
 pip freeze | Out-File -Encoding utf8 requirements.txt
 ```
-### 4. Change .env.example to .env and Add the Keys
-- The project ID and key can be found in the Supabase project settings under API Keys.
-- The OPENAI key can be found by navigating to OpenAI platform -> API KEYS in the left panel and then creating a new one.
-- NOTE: If you publish your OPENAI key to GitHub, or paste it anywhere outside VSCode, it will stop working, and you'll need another one.
-- NOTE: If you don't have access to Crosswars on OPENAI or Supabase, contact: danielleakaella@gmail.com to get the invites.
-
-   OPENAI_API_KEY="your_key_here"
-   SUPABASE_URL="https://yourprojectid.supabase.co"
-   SUPABASE_KEY="your-anon-or-service-role-key"
+### 4. Change .env.example to .env and add the Keys
+- change .env.example to just .env
+- in your .env file, you should have:
+```bash
+OPENAI_API_KEY="your_key_here"
+SUPABASE_URL="https://<project-id>.supabase.co"
+SUPABASE_KEY="service-roll-key"
+```
+> email danielleakaella@gmail.com to get dev access to the supabase project to obtain project ID and anon key
+   
    
 ### 5. Run the Development Server and Check
 - in the terminal run
@@ -216,7 +209,7 @@ git pull origin main
 git checkout -b <feature-or-fix>/<description>
 git switch -c <feature-or-fix>/<description>
 ```
-2. Activatethe virtual environment:
+2. Activate the virtual environment:
    - Windows: `.\.venv313\Scripts\Activate.ps1`
    - Mac:`source .venv313/bin/activate`
 
@@ -243,7 +236,7 @@ python -m pytest
 ```bash
 git push origin <branch-name>
 ```
-6. End dev session aka leave venv
+6. End dev session, aka leave venv
 ```bash
 deactivate
 ```
