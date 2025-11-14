@@ -1,7 +1,7 @@
 # Welcome to CrossWars — a free, social, mini-crossword
 
 ## What is CrossWars?
-CrossWars is a free web app that delivers a daily mini-crossword and adds realtime social competition: solve solo or race friends while seeing each other’s progress. If you like mini-crosswords but cant afford the NYT-mini and want the option to race against friends for who can complete the daily mini your in the right place!
+CrossWars is a free web app that delivers a daily mini-crossword and adds real-time social competition: solve solo or race friends while seeing each other’s progress. If you like mini-crosswords but can't afford the NYT-mini and want the option to race against friends for who can complete the daily mini, you're in the right place!
 
 ## Overview
 
@@ -12,11 +12,11 @@ CrossWars is a free web app that delivers a daily mini-crossword and adds realti
 
 - View your stats.
 
-- Clear simple yet attractive design.
+- Clear, simple yet attractive design.
 
 
 ## How to Play
-- Navigate to [crosswars.xyz](crosswars.xyz) (as of 10/28 we are not yet live, beta games will open 11/4!)
+- Navigate to [crosswars.xyz](crosswars.xyz) (as of 11/13 we are not yet live, beta games will open 11/4!)
 - Sign up and validate your email and login!
 - Select what type of game you want to play
    - Solo, just go ahead and play as you expect
