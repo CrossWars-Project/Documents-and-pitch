@@ -1,11 +1,11 @@
 # Welcome to CrossWars
-If you are a developer contributing to this project this is the place to be. 
+If you are a developer contributing to this project, this is the place to be. 
 
-This project has serveral important files. This file will give you a brief overview and direct you to the files that have more detailed information. Before you get started be sure to read the remainder of this file and set up. Before contributing be sure to read the remaining files. 
+This project has several important files. This file will give you a brief overview and direct you to the files that have more detailed information. Before you get started, be sure to read the remainder of this file and set up. Before contributing, be sure to read the remaining files. 
 
 ## Setup
 - [Setup](setup.md) will explain the following:
-    - How the repositories are setup and how to access the source code and supabase keys.
+    - How the repositories are set up and how to access the source code and Supabase keys.
     - Directory structures
     - Getting set up
     - Workflow
@@ -18,4 +18,3 @@ This project has serveral important files. This file will give you a brief overv
 - [Testing](testing.md) will explain the following:
     - How to test
     - How to add tests
-
