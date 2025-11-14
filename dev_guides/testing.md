@@ -1,80 +1,66 @@
-This will contain detailed information on test structure, commands, and seed data
-## Testing Automation Infrastructure
-- Pytest in the backend repo
-    - Why Pytest? Simple syntax allows creation of reusable fixtures and integrates nicely with CircleCi.
-- Jest in the frontend repo.
-    - Why Jest? Based on our research, Jest is the industry standard for JavaScript/React testing. It also integrates with CircleCI.
+# Testing Guide
 
+## Backend Testing
 
-## Backend
+### Running Tests
 
-### Running Tests Backend
+**Prerequisites:** 
+- Be in the Backend directory with virtual environment active
+- Stop the backend server if running (Ctrl+C)
 
-Run tests from the project root with your virtual environment active:
 ```bash
-powershell
+cd Backend
 python -m pytest -q
 ```
 
-### If pytest can't find the `app` package:
+**Test execution options:**
+- Run all tests: `python -m pytest`
+- Run specific file: `python -m pytest tests/test_invites.py`
+- Run specific test: `python -m pytest -k "test_create_invite_auth_user"`
+- Verbose output: `python -m pytest -v`
+- Quiet mode: `python -m pytest -q`
 
-**Option 1: Use `pytest.ini` (current setup)**
-- Adds `pythonpath = .` so `from app...` resolves
-- Quickest fix for small repos
+### How to Add a Test
 
-**Option 2: Editable install (recommended for development)**
+1. Go to the `tests/` folder and find the relevant test file (or create a new one)
+2. Import pytest and any needed modules
+3. Create mock objects as needed (users, data, etc.)
+4. Define test with `def test_name():`
+5. Use `assert` statements to verify expected behavior
+
+**Important:** Tests must be run from the `tests/` folder due to the `conftest.py` file that sets up the testing environment.
+
+## Frontend Testing
+
+### Running Tests
+
 ```bash
-powershell
-python -m pip install -e .
-```
-- Requires `pyproject.toml` or `setup.cfg`
-- Makes package importable for all Python runs
-
-**Option 3: Set PYTHONPATH temporarily**
-```powershell
-$env:PYTHONPATH = (Get-Location).Path; python -m pytest -q
-```
-
-### How to add a test: 
-- Go into the tests folder and find the most relevant file for the tests we wish to write, or create a new file.
-- Note: you MUST be in the tests folder. There is a conftest file that sets the env variable to testing, which is what signals app/db.py to use the mock database.
-- Be sure to import pytest. 
-- It is often a good pattern to create a mock user or other mock object we can use in different tests.
-- Define each test in the file with `def <test_name>`. 
-- Use pytest’s assert statements to ensure expected behavior. 
-- We can run a file of tests in our terminal with `pytest tests/<test_name>.py` or a specific test with `pytest -k <specific_test_name>`. 
-- There is a job in CircleCI that enforces that we may not merge any code that does not pass any tests in the test folder.
-
-## Frontend
-
-### Running Tests Frontend
-
-Run tests from the frontend directory:
-```bash
+cd Frontend
 npm test
 ```
 
 **Development options:**
-- Watch mode (reruns on file changes): `npm test -- --watch`
-- With coverage report: `npm test -- --coverage`
-- Specific test file: `npm test ComponentName.test.jsx`
+- Watch mode: `npm test -- --watch`
+- Coverage report: `npm test -- --coverage`
+- Specific file: `npm test ComponentName.test.jsx`
 - Specific test: `npm test -- -t "test name"`
 
-### How to add a test:
+### How to Add a Test
 
-- Create a test file next to the component you're testing (e.g., `Dashboard.jsx` → `Dashboard.test.jsx`).
-- Be sure to import testing utilities from `@testing-library/react` and `@testing-library/user-event`.
-- It is often a good pattern to create mock data, mock API responses, or mock context values we can use in different tests.
-- For tests involving API calls, mock the functions from `src/api.js` using `jest.mock('../../api')`.
-- For tests involving context (from `src/context/`), wrap components in the appropriate context provider with mock values.
-- Define each test in the file within a `describe` block: 
+1. Create test file next to component: `Component.jsx` → `Component.test.jsx`
+2. Import testing utilities: `@testing-library/react`, `@testing-library/user-event`
+3. Mock API calls with `jest.mock('../../api')` if needed
+4. Wrap components in context providers with mock values if needed
+5. Define tests in `describe` blocks:
+
 ```javascript
-  describe('ComponentName', () => {
-    test('description of behavior', () => {
-      // test code
-    });
+describe('ComponentName', () => {
+  test('description of behavior', () => {
+    // test code with expect() assertions
   });
+});
 ```
-- Use `expect()` assertions to ensure expected behavior (e.g., `expect(element).toBeInTheDocument()`).
-- We can run a file of tests in our terminal with `npm test ComponentName.test.jsx` or a specific test with `npm test -- -t "specific test name"`.
-- There is a job in CircleCI that enforces that we may not merge any code that does not pass all tests.
+
+## CI/CD
+
+Both backend and frontend tests run automatically in CircleCI. All tests must pass before code can be merged.
