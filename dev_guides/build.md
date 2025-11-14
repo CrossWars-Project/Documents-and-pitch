@@ -1,120 +1,182 @@
-## Building a Release
+# Building and Running CrossWars
 
-### Local Development Build (Both Frontend + Backend)
+This guide covers building and running CrossWars locally for development and production-like testing. For initial setup, see [setup.md](setup.md). For testing details, see [testing.md](testing.md).
 
-#### Complete Local Setup
+## Quick Start (Daily Development)
+
+**Most common workflow** - run these in separate terminals:
+
+### Terminal 1: Backend Development Server
 ```bash
-# 1. Start Backend
 cd Backend
 .\.venv313\Scripts\Activate.ps1  # Windows
 # source .venv313/bin/activate    # Mac/Linux
 
-# Install/update dependencies
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-
-# Start backend server
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+*Auto-reloads on code changes for faster development*
 
-# 2. In NEW terminal - Start Frontend
+### Terminal 2: Frontend Development Server
+```bash
 cd Frontend
-npm install
 npm run dev
 ```
+*Hot-reload shows changes instantly in browser*
 
-#### Local Production-like Build
+### Verify Build is Working
+- Backend API: http://127.0.0.1:8000 → Should show "Hello from FastAPI backend!"
+- Frontend: http://localhost:5173 → Should show CrossWars login page
+- API Docs: http://127.0.0.1:8000/docs → Interactive API testing interface
+
+---
+
+## Production-Like Local Build
+
+**When to use:** Testing performance, final validation before deployment, debugging production-specific issues.
+
+### Backend (No Auto-Reload)
 ```bash
-# Backend - Production mode (no auto-reload)
 cd Backend
 .\.venv313\Scripts\Activate.ps1
 uvicorn app.main:app --host 127.0.0.1 --port 8000
-
-# Frontend - Production build served locally
-cd Frontend
-npm run build
-npm run preview
 ```
 
-#### Environment Configuration for Local Deploy
-**Backend (.env):**
+### Frontend (Optimized Build)
+```bash
+cd Frontend
+npm run build          # Creates optimized build in dist/
+npm run preview        # Serves built app on port 4173
+```
+
+**Access:** Frontend at http://localhost:4173 (production-optimized)
+
+---
+
+## Environment Configuration
+
+### When Environment Changes Are Needed
+- Switching between Supabase projects (dev/prod)
+- Testing with different API endpoints
+- Using different external service accounts
+
+### Backend Environment (.env)
 ```bash
 SUPABASE_URL="https://yourprojectid.supabase.co"
 SUPABASE_KEY="your-service-role-key"
 OPENAI_API_KEY="your_openai_key"
 ```
 
-**Frontend (.env):**
+### Frontend Environment (.env)
 ```bash
 VITE_API_URL=http://127.0.0.1:8000
 VITE_SUPABASE_URL=https://yourprojectid.supabase.co
 VITE_SUPABASE_ANON_KEY="your-anon-key"
 ```
 
-#### Verify Local Build Works
+**Important:** Restart both servers after changing environment variables.
+
+---
+
+## Build Workflows
+
+### 1. Feature Development
 ```bash
-# 1. Check backend is running
-curl http://127.0.0.1:8000
-# Should return: {"message": "Hello from FastAPI backend!"}
+# Start development servers (auto-reload enabled)
+cd Backend && .\.venv313\Scripts\Activate.ps1 && uvicorn app.main:app --reload
+cd Frontend && npm run dev
 
-# 2. Visit API docs
-# http://127.0.0.1:8000/docs
-
-# 3. Check frontend
-# http://localhost:5173 (dev) or http://localhost:4173 (preview)
+# Code, test in browser, iterate quickly
 ```
 
-#### Pre-Deploy Testing
+### 2. Pre-Commit Validation
 ```bash
-# Backend tests
+# Format code (see testing.md for test commands)
+cd Backend && make format
+cd Frontend && make format
+
+# Test production build works
+cd Frontend && npm run build && npm run preview
+```
+
+### 3. Dependency Updates
+```bash
+# After pulling code that changes dependencies
+cd Backend && pip install -r requirements.txt
+cd Frontend && npm install
+
+# Restart servers to use new dependencies
+```
+
+---
+
+## Stopping Services
+
+### Graceful Shutdown
+```bash
+# In each terminal window:
+Ctrl+C                 # Stop the server
+deactivate            # Exit Python virtual environment (backend only)
+```
+
+### Force Stop (Unresponsive Servers)
+- Close terminal windows
+- Kill processes via Task Manager (Windows) or Activity Monitor (Mac)
+
+---
+
+## Build Troubleshooting
+
+### Backend Build Issues
+
+**Port 8000 already in use:**
+```bash
+# Windows
+netstat -ano | findstr :8000
+taskkill /PID <PID> /F
+
+# Mac/Linux
+lsof -ti:8000 | xargs kill -9
+```
+
+**Import/dependency errors after pulling new code:**
+```bash
 cd Backend
-make format
-python -m pytest
-
-# Frontend tests  
-cd Frontend
-make format
-npm test
-
-# Manual testing checklist:
-# - [ ] User can sign up/login
-# - [ ] Solo crossword works
-# - [ ] Battle invites create successfully
-# - [ ] All API endpoints respond correctly
+pip install -r requirements.txt  # Install missing dependencies
+pip install -r requirements-dev.txt  # Install dev tools
 ```
 
-#### Stop Local Deployment
+**Database connection failures:**
+- Verify `.env` file has correct Supabase credentials
+- Check Supabase project is active and accessible
+- Ensure using service role key (not anon key) for backend
+
+### Frontend Build Issues
+
+**CORS errors in browser:**
+- Ensure backend is running on expected port (8000)
+- Verify backend CORS settings allow localhost:5173
+- Check `VITE_API_URL` in frontend `.env` matches backend URL
+
+**npm build failures:**
 ```bash
-# Stop backend: Ctrl+C in backend terminal
-deactivate
-
-# Stop frontend: Ctrl+C in frontend terminal
-```
-
-### Local Build Troubleshooting
-
-**Backend Issues:**
-- Port 8000 already in use: `netstat -ano | findstr :8000` then kill process
-- Import errors: Reinstall requirements with `pip install -r requirements.txt`
-- Database connection: Verify Supabase credentials in .env
-
-**Frontend Issues:**
-- CORS errors: Ensure backend CORS allows localhost:5173
-- Build failures: Clear node_modules and reinstall with `npm install`
-- Environment variables not loading: Restart dev server after .env changes
-
-**Full Reset (if issues persist):**
-```bash
-# Backend
-cd Backend
-deactivate
-Remove-Item .venv313 -Recurse -Force  # Windows
-py -3.13 -m venv .venv313
-.\.venv313\Scripts\Activate.ps1
-pip install -r requirements.txt
-
-# Frontend  
 cd Frontend
-Remove-Item node_modules -Recurse -Force
-Remove-Item package-lock.json -Force
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json  # Mac/Linux
+Remove-Item node_modules, package-lock.json -Recurse -Force  # Windows
 npm install
 ```
+
+**Environment variables not working:**
+- Restart dev server after changing `.env` files
+- Ensure frontend variables start with `VITE_`
+- Check browser dev tools for actual values being used
+
+---
+
+## Build vs Test vs Setup
+
+- **This guide (build.md):** Running and building the application
+- **[testing.md](testing.md):** Running tests, test structure, adding new tests
+- **[setup.md](setup.md):** Initial project setup, repo access, tool installation
+
+For testing commands and procedures, see [testing.md](testing.md).
