@@ -19,12 +19,16 @@ CrossWars is a free web app that delivers a daily mini-crossword and adds real-t
 
 ## How to Play
 - Navigate to [crosswars.xyz](crosswars.xyz) (as of 11/13 we are not yet live, beta games will open 11/4!)
-- Sign up and validate your email and login!
-- Select what type of game you want to play
-   - Solo, just go ahead and play as you expect
-   - Want to race a friend?
-       - You will need to invite your friend and wait for them to accept before you guys can race.
-       - Head to [Race](racing-friends.md) to learn more about how race mode works!
+- On your first visit, sign up by entering your name, email, and creating a password.
+   - You'll have to validate your email before playing.
+   - On subsequent visits, log in with the same email and password.
+- Once in your dashboard, select what type of game you want to play:
+   - Solo: play by yourself!
+   - Battle: challenge an opponent!
+       - Want to race a friend?
+          - You will need to invite your friend and wait for them to accept before the race can begin.
+          - Copy the invite link, then head into the Battle Room and wait for them to accept.
+          - Head to [Race](racing-friends.md) to learn more about how race mode works!
 
 ## Having an issue?
 If you are having an issue or want to report a bug? Head to [Troubleshooting](troubleshooting.md)!
