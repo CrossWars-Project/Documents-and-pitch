@@ -19,10 +19,10 @@
 - Copy the provided link and send it to a Friend, then enter the battle room
     - Your friend has until the end of the day to accept the invite
     - Your friend can play as a guest or a logged-in user
-    - Until your friend accepts you, you will not be in waiting; at this point, you will not be able to see the crossword.
+    - Until your friend accepts you, you will be in waiting. During this time, you will not be able to see the crossword.
 - Once your Friend accepts, you will be notified, and they will be added to the same waiting room.
-    - If the invite expires or is declined, you will be notified and ejected from the waiting room and have the option of playing solo or inviting someone else
-    - You can only play one solo and one race mode a day
+    - If the invite expires or is declined, you will be notified and ejected from the waiting room. You will have the option of playing solo or inviting someone else
+    - You may only play one solo game and one battle game per day
 
 
 
