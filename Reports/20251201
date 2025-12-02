@@ -1,0 +1,38 @@
+# Team Report 12/1
+### Project Meeting Agenda:
+- Get all eyes on debugging the final things that are preventing live functionality
+- Discuss tasks and assignment for project to be completed (back buttons, documentation, finishing touches) 
+- Check project for final requirements satisfaction (e.g., coverage report type thing) 
+### Last week’s goals:
+- Setting up opponent progress tracking with square highlighting and or progress (whichever proves to be more successful in time for Gamma)
+- Scheduled table cleaning for invites and battles.
+- Get the live site working.
+### Progress and Issues:
+- Cursor tracking live for battle play
+- users properly enter the battle room synced in real time
+- local host hardcoding fixed to support dev, preview, and deployed site connection to the correct server
+### Plans and goals:
+- Square highlighting for battle play complete
+- win screen complete
+- progress bar complete
+- fix remaining bugs preventing live functionality
+- update documentation
+- resolve all peer review issues
+
+## Individual Contributions
+### Last week’s goals: 
+- Anna: Figure out BattleScreen multiplayer view, get progress bar updating
+- Jacqui: Make it so that the user can only play battle and solo play once a day, and work on localhost issues for the live site.
+- Kiann: Add tests for routes, organize files in the backend to fit the workflow of the team. Work with team members to solve bugs in the generator. Add routes for the battle_play to pull the JSON instead of making a generator call. Clear SubaBase tables after each day, to remove any old records from the day before. Add memory to GitHub actions so that it knows when the crossword files are not there, and auto creates them. 
+- Danielle: Get the completed route implemented by 11/29, help Jacqui with the localhost issues to get live working 12/1. 
+ 
+### Progress and issues: 
+- Anna: Early cursor tracking complete, battle play mostly functional.
+- Danielle: Hardcoding localhost and CORS issues fixed. Complete route implementation and testing have been done. Assigned/updated git issues. Some bugs are preventing full functionality on live.
+- Jacqui:
+- Kiann: Fixed early bugs in the generation software. Changed Github actions to save crossword files in SupaBase instead of on the backend server. Created New SupaBase table (“bucket”) for storing files and seeing past crosswords if needed. 
+### Plans and goals:
+- Anna:  Need to enhance cursor tracking to show completed squares, add win screen.
+- Danielle: Fix issues preventing live from full functionality 12/2. Update documentation to be accurate for the current state of project 12/6. Resolve all assigned Issues 12/4. 
+- Kiann: work with the team to enhance any other bugs and clean up the site. Make sure frontend is calling the right files for battleplay after my new change to Supabse by 12/4. Make sure the live site is running smoothly and look for any bugs in the daily generation GitHub actions (no specific timeline - just checking constantly if the process is going well)
+Jacqui:
