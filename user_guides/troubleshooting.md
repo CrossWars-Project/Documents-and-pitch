@@ -10,6 +10,7 @@ Check this repo's "Issues" for bugs that have been reported!
 
 ### Limitations:
 - For now, we do not support mobile game play :(
+- Reloading the page mid game will reset progress. Please refrain from exiting or reloading the game!
 
 ## How to report a bug
 1. Navigate to the Reports and Documents [issues](https://github.com/CrossWars-Project/Reports-and-Documents/issues)
