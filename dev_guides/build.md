@@ -54,6 +54,32 @@ npm run preview        # Serves built app on port 4173
 
 ## Environment Configuration
 
+### Switching Between Local and Deployed Backends
+
+**Important:** The frontend can connect to either your local backend OR the deployed production backend. Change `VITE_API_URL` in `Frontend/.env` based on what you're testing.
+
+#### Use Local Backend (Default for Development)
+```bash
+# Frontend/.env
+VITE_API_URL=http://127.0.0.1:8000
+```
+- Use when: Developing features, testing local changes, running full stack locally
+- Requires: Local backend running (`uvicorn app.main:app --reload`)
+- Benefits: Instant feedback, can debug backend, no internet dependency
+
+#### Use Deployed Backend (Production Testing)
+```bash
+# Frontend/.env  
+VITE_API_URL=https://backend-ezw4.onrender.com
+```
+- Use when: Testing against production data, testing frontend without running backend locally
+- Requires: Deployed backend must be running and accessible
+- Benefits: Test with real production environment, test CORS configuration
+
+**After changing `VITE_API_URL`:**
+- For `npm run dev`: Restart the dev server (Ctrl+C, then `npm run dev`)
+- For `npm run preview`: Run `npm run build` again, then `npm run preview`
+
 ### When Environment Changes Are Needed
 - Switching between Supabase projects (dev/prod)
 - Testing with different API endpoints
