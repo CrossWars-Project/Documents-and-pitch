@@ -29,38 +29,32 @@ Reflects the current published version of respective repos.
 ```
 /
 ├─ backend/                 # FastAPI backend
-│  ├─ .circleci/            # CI/CD configuration
+│  ├─ .github/              # GitHub workflows and automated jobs
 │  ├─ app/
-│  │  ├─ routes/            # API endpoints for database interactions
-│  │  │  
-│  │  ├─ auth.py            # Authentication token management
-│  │  ├─ db.py              # Supabase connection setup
-│  │  └─ models.py          # SQLAlchemy ORM table definitions
+│  │  ├─ routes/            # API endpoints for database 
+interactions
+│  │  ├─ generator.py
+│  │  └─ main.py
 │  ├─ tests/                # Test suite for routes and functions
-│  ├─ venv/                 # Python virtual environment
 │  ├─ .env                  # Environment variables (not in git)
 │  ├─ .env.example          # Template for required environment variables
+│  ├─ README.md
 │  ├─ requirements.txt      # Production dependencies
-│  ├─ requirements-dev.txt  # Development dependencies
-│  └─ pytest.ini            # Pytest configuration
+│  └─ requirements-dev.txt  # Development dependencies
 │
 ├─ frontend/                # React frontend (Vite)
-│  ├─ .circleci/            # CI/CD configuration
 │  ├─ public/               # Static assets (favicon, images)
 │  ├─ src/
 │  │  ├─ components/        # React components organized by feature
 │  │  ├─ context/           # React Context providers (auth, game state)
 │  │  ├─ api.js             # Backend API client functions
-│  │  ├─ supabaseClient.js  # Supabase client configuration
-│  │  ├─ router.jsx         # React Router route definitions
-│  │  └─ App.jsx            # Root application component
+│  │  └─ config.js          # API configuration
 │  ├─ .env                  # Environment variables (not in git)
 │  ├─ .env.example          # Template for required environment variables
-│  ├─ package.json          # Node dependencies and scripts
-│  └─ vite.config.js        # Vite build configuration
+│  └─  package.json          # Node dependencies and scripts
 │
 └─ reports-and-docs/        # Project documentation
-  ├─ dev_guides/           # Developer guides (setup, testing, deployment)
+  ├─ dev_guides/           # Developer guides
   ├─ user_guides/          # End-user documentation
   ├─ Reports/              # Weekly progress reports for the dev team
   ├─ Cross Wars Working Doc.pdf  # Development working document
@@ -88,15 +82,17 @@ Make sure you have the following installed or access to **before starting**:
 npm install
 npm install react-icons
 ```
+**Important:** You must run `npm install react-icons` after `npm install` to ensure all icon dependencies are properly installed.
+
 ### 3. Set up the environment
 - change .env.example to just .env
 - in your .env file, you should have:
 ```bash
-VITE_API_URL=http://127.0.0.1:8000
+VITE_API_URL=http://127.0.0.1:8000 
 VITE_SUPABASE_URL=https://<project-id>.supabase.co
 VITE_SUPABASE_ANON_KEY="anon-key"
 ```
-> email danielleakaella@gmail.com to get dev access to the supabase project to obtain project ID and anon key
+> email dmaddo@uw.edu or akpettis@uw.edu to get dev access to the supabase project to obtain project ID and anon key
 - If necessary, replace http://127.0.0.1:8000 to whatever your backend port is
 ### 4. Start the Development server
 ```bash
@@ -148,7 +144,11 @@ OPENAI_API_KEY="your_key_here"
 SUPABASE_URL="https://<project-id>.supabase.co"
 SUPABASE_KEY="service-roll-key"
 ```
-> email danielleakaella@gmail.com to get dev access to the supabase project to obtain project ID and anon key
+**Important:** 
+- Do NOT use quotes around the API key!
+- The `.env` file should be in the `backend/` directory (not `backend/app/`)
+
+> email dmaddo@uw.edu or akpettis@uw.edu to get dev access to the supabase project to obtain project ID and anon key
    
    
 ### 5. Run the Development Server and Check
@@ -157,6 +157,7 @@ SUPABASE_KEY="service-roll-key"
 uvicorn app.main:app --reload
 ```
 - visit http://127.0.0.1:8000 to check if it's working, should see { "message": "Hello from FastAPI backend!" }
+
 
 ### Backend setup troubleshooting
 - If vev prompts use venv interpreter `.venv313/Scripts/python.exe`
