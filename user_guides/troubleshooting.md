@@ -2,6 +2,7 @@
 
 ## Common issues and how to solve them
 This will include common hangups and temporary patches/ways to address them until a more formal solution can be pushed
+- Login can sometimes take a minute you may need to refresh the page and try again ```Ctrl + Shift + R```
 
 ## Known Bugs & Limmitations
 
@@ -11,6 +12,7 @@ Check this repo's "Issues" for bugs that have been reported!
 ### Limitations:
 - For now, we do not support mobile game play :(
 - Reloading the page mid game will reset progress. Please refrain from exiting or reloading the game!
+- If you exit a battle game or fail to join you will not be able to rejoin! A new invite will need to be created, shared, and accepted
 
 ## How to report a bug
 1. Navigate to the Reports and Documents [issues](https://github.com/CrossWars-Project/Reports-and-Documents/issues)
