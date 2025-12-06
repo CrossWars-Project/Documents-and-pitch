@@ -209,6 +209,74 @@ ls backend/app/*.json
 
 ---
 
+## Crossword JSON Format
+
+Understanding the crossword data structure is helpful when debugging or extending crossword features.
+
+### File Locations
+
+Generated crosswords are saved in `Backend/app/`:
+- `solo_play.json` - For Solo Play mode
+- `battle_play.json` - For Battle Play mode
+- `latest_crossword.json` - Temporary file (can be ignored)
+
+### JSON Structure
+
+```json
+{
+  "theme": "technology",
+  "words_sent": ["APP", "NET", "CODE", "DATA", "BOT", "WEB", "API", "CPU"],
+  "dimensions": { "cols": 5, "rows": 5 },
+  "placed_words": [
+    ["APP", 0, 0, true],    // [word, row, col, isAcross]
+    ["NET", 1, 2, false],
+    ["CODE", 2, 0, true]
+  ],
+  "grid": [
+    ["A","P","P","-","-"],
+    ["-","-","N","-","-"],
+    ["C","O","D","E","-"],
+    ["-","-","T","-","-"],
+    ["-","-","-","-","-"]
+  ],
+  "clues": {
+    "APP": ["Mobile application software."],
+    "NET": ["Internet or mesh structure."],
+    "CODE": ["Programming instructions."]
+  },
+  "clues_across": [
+    "Mobile application software.",
+    "Programming instructions."
+  ],
+  "clues_down": [
+    "Internet or mesh structure."
+  ]
+}
+```
+
+### Field Descriptions
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `theme` | string | Theme used for word generation |
+| `words_sent` | array | All words requested from OpenAI (25 words) |
+| `dimensions` | object | Grid size (always `{cols: 5, rows: 5}`) |
+| `placed_words` | array | Words successfully placed: `[word, row, col, isAcross]` |
+| `grid` | 2D array | 5x5 character array (letters and `"-"` for black squares) |
+| `clues` | object | Map of word → clue text |
+| `clues_across` | array | Horizontal clues in order |
+| `clues_down` | array | Vertical clues in order |
+
+### Key Features
+
+- ✅ Always 5x5 grid (automatically padded if needed)
+- ✅ 3-5 letter words (mostly 3-letter for better placement)
+- ✅ 25 words requested from OpenAI (more placement options)
+- ✅ Theme rotation (15 themes cycle based on day of year)
+- ✅ Black squares represented as `"-"` in grid
+
+---
+
 ## Questions?
 
 If you have issues with testing, check:
