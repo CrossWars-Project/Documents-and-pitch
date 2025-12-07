@@ -75,7 +75,7 @@ Make sure you have the following installed or access to **before starting**:
 
 ### 1. Clone Repo
 [Frontend Repo](https://github.com/CrossWars-Project/Frontend#)
-Alternatively, you can paste this command in yoru terminal: git clone https://github.com/CrossWars-Project/Frontend.git
+- Alternatively, you can paste this command in yoru terminal: git clone https://github.com/CrossWars-Project/Frontend.git
 
 ### 2. Install dependencies
 ` cd frontend `
@@ -118,7 +118,7 @@ Make sure you have the following installed or access to **before starting**:
 
 ### 1. Clone the Repository
 [Backend Repo](https://github.com/CrossWars-Project/Backend#)
-Alternatively, you can paste this command in yoru terminal: git clone https://github.com/CrossWars-Project/Backend.git
+- Alternatively, you can paste this command in yoru terminal: git clone https://github.com/CrossWars-Project/Backend.git
 
 ### 2. Create and Activate a Virtual Environment
 ` cd backend `
