@@ -75,6 +75,8 @@ Make sure you have the following installed or access to **before starting**:
 
 ### 1. Clone Repo
 [Frontend Repo](https://github.com/CrossWars-Project/Frontend#)
+Alternatively, you can paste this command in yoru terminal: git clone https://github.com/CrossWars-Project/Frontend.git
+
 ### 2. Install dependencies
 ` cd frontend `
 - install all packages with
@@ -116,6 +118,7 @@ Make sure you have the following installed or access to **before starting**:
 
 ### 1. Clone the Repository
 [Backend Repo](https://github.com/CrossWars-Project/Backend#)
+Alternatively, you can paste this command in yoru terminal: git clone https://github.com/CrossWars-Project/Backend.git
 
 ### 2. Create and Activate a Virtual Environment
 ` cd backend `
@@ -125,6 +128,8 @@ Make sure you have the following installed or access to **before starting**:
 - Then activate the virtual environment:
    - Windows: `.venv313\Scripts\Activate.ps1`
    - Mac:`source .venv313/bin/activate`
+- Once you are in venv, make sure to test you python version by running python --version or py --version or python3 --version depending on your system.
+- NOTE: If Python version is not 3.12+, you will need to update the python on your system and restart the process so the chnages take place. 
 
 ### 3. Install Dependencies
 - In your VS terminal, run
